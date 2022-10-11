@@ -22419,32 +22419,32 @@ a.ocs-arrow-back {
     text-align: left
 }
 
-app-title .ux-panel-item {
+ .ux-panel-item {
     box-shadow: none;
     min-height: auto
 }
 
-app-title .ux-panel-item .ux-panel-content {
+ .ux-panel-item .ux-panel-content {
     background-color: transparent;
     width: 100%
 }
 
-app-title .ux-panel-item .ux-panel-content h2 {
+ .ux-panel-item .ux-panel-content h2 {
     font-size: 2.3em;
     line-height: 1em;
     padding: .5em 2em .3em
 }
 
-app-title.ocs-icon-subtitle {
+.ocs-icon-subtitle {
     text-align: center
 }
 
-app-title.ocs-icon-subtitle .ux-panel-content {
+.ocs-icon-subtitle .ux-panel-content {
     margin-top: 0 !important;
     padding: 1em
 }
 
-app-title.ocs-icon-subtitle .ux-panel-content .title-check {
+.ocs-icon-subtitle .ux-panel-content .title-check {
     background: url(https://eci.ec.europa.eu/024/public/check_title.073a7d2561083610.svg) top left no-repeat;
     display: block;
     height: 2.85em;
@@ -22453,7 +22453,7 @@ app-title.ocs-icon-subtitle .ux-panel-content .title-check {
     width: 2.85em
 }
 
-app-title.ocs-icon-subtitle .ux-panel-content .title-close {
+.ocs-icon-subtitle .ux-panel-content .title-close {
     background: url(https://eci.ec.europa.eu/024/public/close_title.379cc05ca2c33d44.svg) top left no-repeat;
     display: block;
     height: 2.85em;
@@ -22462,7 +22462,7 @@ app-title.ocs-icon-subtitle .ux-panel-content .title-close {
     width: 2.85em
 }
 
-app-title.ocs-icon-subtitle .ux-panel-content .title-hand {
+.ocs-icon-subtitle .ux-panel-content .title-hand {
     background: url(https://eci.ec.europa.eu/024/public/thumbsup_title.ab4be9a9d46d86dc.svg) top left no-repeat;
     display: block;
     height: 2.85em;
@@ -22471,14 +22471,14 @@ app-title.ocs-icon-subtitle .ux-panel-content .title-hand {
     width: 2.85em
 }
 
-app-title.ocs-icon-subtitle .ux-panel-content h2 {
+.ocs-icon-subtitle .ux-panel-content h2 {
     font-family: eui-bold;
     font-size: 1.57em;
     max-width: 100%;
     padding: .5em 1em 0 !important
 }
 
-app-title.ocs-icon-subtitle .ux-panel-content h3 {
+.ocs-icon-subtitle .ux-panel-content h3 {
     font-size: 1.3em
 }
 
@@ -22848,7 +22848,7 @@ fieldset.ocs-form-country {
 
 .eui-app-main .ocs-container-right app-form .ocs-form-initiative form .mb-5 button.ocs-button-blue {
     background-color: #671818;
-    border-color: #671818
+    border-color: #671818 
 }
 
 .theme1 .ux-panel-item {
@@ -24210,8 +24210,8 @@ caption {
     width: 45%
 }
 
-app-privacy app-title ux-panel .ux-panel-item,
-app-login app-title ux-panel .ux-panel-item {
+app-privacy  ux-panel .ux-panel-item,
+app-login  ux-panel .ux-panel-item {
     align-content: center;
     align-items: center;
     display: flex;
@@ -24219,8 +24219,8 @@ app-login app-title ux-panel .ux-panel-item {
     min-height: 4.6428em
 }
 
-app-privacy app-title ux-panel .ux-panel-item .ux-panel-content h2,
-app-login app-title ux-panel .ux-panel-item .ux-panel-content h2 {
+app-privacy  ux-panel .ux-panel-item .ux-panel-content h2,
+app-login  ux-panel .ux-panel-item .ux-panel-content h2 {
     font-family: eui-bold;
     font-size: 1.5em;
     margin: 0;
@@ -24232,8 +24232,8 @@ app-login app-title ux-panel .ux-panel-item .ux-panel-content h2 {
 
 @media screen and (max-width: 47em) {
 
-    app-privacy app-title ux-panel .ux-panel-item .ux-panel-content h2,
-    app-login app-title ux-panel .ux-panel-item .ux-panel-content h2 {
+    app-privacy  ux-panel .ux-panel-item .ux-panel-content h2,
+    app-login  ux-panel .ux-panel-item .ux-panel-content h2 {
         top: -1em
     }
 }
@@ -24641,18 +24641,18 @@ app-login app-title ux-panel .ux-panel-item .ux-panel-content h2 {
         display: block
     }
 
-    app-title .ux-panel-item {
+     .ux-panel-item {
         height: auto
     }
 
-    app-title .ux-panel-item .ux-panel-content h2 {
+     .ux-panel-item .ux-panel-content h2 {
         max-width: 100%;
         padding: .5em
     }
 }
 
 @media screen and (max-width: 76.5em) and (max-width: 25em) {
-    app-title .ux-panel-item .ux-panel-content h2 {
+     .ux-panel-item .ux-panel-content h2 {
         font-size: 1.15em;
         font-weight: 400;
         padding: 1em
@@ -24689,7 +24689,7 @@ app-login app-title ux-panel .ux-panel-item .ux-panel-content h2 {
         display: block !important
     }
 
-    app-title .full {
+    h1.full {
         margin-top: 3rem
     }
 
