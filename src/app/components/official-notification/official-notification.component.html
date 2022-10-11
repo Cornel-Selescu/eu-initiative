@@ -1,0 +1,20 @@
+<div id="global">
+    <div data-nosnippet="true" class="globan globan-dropdown-collapsed dark logo-flag" id="globan" style="z-index: 40;">
+        <div class="globan-center">
+            <div class="globan-content">
+                <span>An official website of the European Union</span><span>An official EU
+                    website</span>
+                <a class="wt-link" href="#globan-dropdown" aria-controls="globan-dropdown" (click)="toggleMessage($event)"
+                    [attr.aria-expanded]="messageVisible">How do you know?</a>
+            </div>
+            <div id="globan-dropdown" class="globan-dropdown" [hidden]="!messageVisible" >
+                <p class="wt-paragraph">All official European Union website addresses are in the <b>europa.eu</b>
+                    domain.</p>
+                <p class="wt-paragraph">
+                    <a class="wt-link" href="//europa.eu/european-union/contact/institutions-bodies_en">See all EU
+                        institutions and bodies</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
