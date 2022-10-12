@@ -1,0 +1,35 @@
+<div app-recent _nghost-yrh-c202="" class="ng-star-inserted">
+    <div class="ocs-panel-style padd0">
+        <div class="ocs-recents-signatories">
+            <table class="table">
+                <caption class="ocs-title-label ux-u-text-align-center">
+                    Recent signatories
+                </caption>
+                <thead>
+                    <tr class="ocs-hideme">
+                        <td id="1"></td>
+                        <th scope="col" id="2" class="ocs-noborder"><span class="ocs-element-hidden">User</span></th>
+                        <th scope="col" id="3" class="ocs-noborder"><span class="ocs-element-hidden">From</span></th>
+                        <th scope="col" id="4" class="ocs-noborder"><span class="ocs-element-hidden">Country</span></th>
+                        <th scope="col" id="5" class="ocs-noborder"><span class="ocs-element-hidden">Date</span></th>
+                        <td id="6"></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="ng-star-inserted" *ngFor="let signator of signators">
+                        <td headers="1"></td>
+                        <td headers="2">
+                            <i aria-hidden="true" class="fa fa-user"></i>
+                            <span aria-hidden="true" class="people-signature"> +1</span>
+                            <span aria-label="One signature"></span>
+                        </td>
+                        <td headers="3">From</td>
+                        <td headers="4"><span attr.aria-label="Signature of {{signator.country | uppercase}}">{{signator.country | uppercase}}</span></td>
+                        <td headers="5"><span aria-label="Date signature 12-Oct-2022">12-Oct-2022</span></td>
+                        <td headers="6"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

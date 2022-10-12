@@ -8,6 +8,7 @@ import { HomeComponent } from './home.component';
 import { InfoSupportComponent } from '../../components/info-support/info-support.component';
 import { InitiaviveTitleComponent } from '../../components/initiavive-title/initiavive-title.component';
 import { InitiativeInfoComponent } from '../../components/initiative-info/initiative-info.component';
+import { RecentSignatoriesComponent } from '../../components/recent-signatories/recent-signatories.component';
 
 @NgModule({
     imports: [
@@ -18,7 +19,8 @@ import { InitiativeInfoComponent } from '../../components/initiative-info/initia
         HomeComponent,
         InfoSupportComponent,
         InitiaviveTitleComponent,
-        InitiativeInfoComponent
+        InitiativeInfoComponent,
+        RecentSignatoriesComponent
     ],
 })
 export class Module {}

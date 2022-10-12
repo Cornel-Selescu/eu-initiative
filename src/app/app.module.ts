@@ -11,7 +11,7 @@ import { OfficialNotificationComponent } from './components/official-notificatio
 @NgModule({
     declarations: [
         AppComponent,
-        OfficialNotificationComponent,
+        OfficialNotificationComponent
     ],
     imports: [
         BrowserModule,
