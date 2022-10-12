@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InitiativeInfo } from './InitiativeInfo';
 
 @Component({
   selector: 'initiative-info',
@@ -18,23 +19,7 @@ export class InitiativeInfoComponent implements OnInit {
   }
 
   moreInfoVisible: boolean = false;
-  initiativeInfo: {
-    initiativeLogo: string,
-    objectives: string[],
-    commissionWebpage: string,
-    initiativeWebsite?: string,
-    contactRep?: {
-      name: string,
-      email: string
-    },
-    contactSub?: {
-      name: string,
-      email: string
-    },
-    registrationNumber: string,
-    registrationDate: string
-
-  } = {
+  initiativeInfo: InitiativeInfo = {
       initiativeLogo: '/assets/img/end-slaughter.png',
       objectives: [
         `1 - Exclude livestock farming from list of activities eligible for agricultural subsidies and include ethical and environmentally friendly alternatives, such as cellular agriculture and plant proteins.`,
