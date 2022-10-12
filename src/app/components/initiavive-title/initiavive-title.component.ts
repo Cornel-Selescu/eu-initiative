@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'initiavive-title',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./initiavive-title.component.scss']
 })
 export class InitiaviveTitleComponent implements OnInit {
-
+  @Input('title') title: string = 'Win It On The Pitch';
+  
   constructor() { }
 
   ngOnInit(): void {
