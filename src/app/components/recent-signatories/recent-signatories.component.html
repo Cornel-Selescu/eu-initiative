@@ -1,4 +1,4 @@
-<div app-recent _nghost-yrh-c202="" class="ng-star-inserted">
+<div app-recent>
     <div class="ocs-panel-style padd0">
         <div class="ocs-recents-signatories">
             <table class="table">
@@ -16,7 +16,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="ng-star-inserted" *ngFor="let signator of signators">
+                    <tr *ngFor="let signator of signators">
                         <td headers="1"></td>
                         <td headers="2">
                             <i aria-hidden="true" class="fa fa-user"></i>
@@ -25,7 +25,7 @@
                         </td>
                         <td headers="3">From</td>
                         <td headers="4"><span attr.aria-label="Signature of {{signator.country | uppercase}}">{{signator.country | uppercase}}</span></td>
-                        <td headers="5"><span aria-label="Date signature 12-Oct-2022">12-Oct-2022</span></td>
+                        <td headers="5"><span attr.aria-label="Date signature {{signator.date}}">{{signator.date}}</span></td>
                         <td headers="6"></td>
                     </tr>
                 </tbody>

@@ -1,0 +1,42 @@
+<section class="ocs-box-padd">
+    <div class="ocs-signature ">
+        <div class="ocs-progress-bar">
+            <i aria-hidden="true" class="fa fa-user"></i>
+            <h3 class="ocs-title-label-inline"> Signatures collected online </h3>
+            <div class="progress mb-2">
+                <div aria-live="polite" role="progressbar" aria-valuemin="0" aria-valuemax="100" class="progress-bar"
+                    aria-valuenow="3" attr.style="width: {{progress}}%;"></div>
+            </div>
+        </div>
+        <div class="ocs-progress-bar-data">
+            <div attr.aria-label="Current number of signatories {{signitureInfo.onlineSignitures | number }}">
+                {{signitureInfo.onlineSignitures | number }} </div> /
+            <div attr.aria-label="Total number of signatories {{signitureInfo.totalSignitures | number }}">
+                {{signitureInfo.totalSignitures | number }} </div>
+        </div>
+    </div>
+
+    <div id="end-period" class="ocs-signature">
+        <i aria-hidden="true" class="fa fa-clock-o"></i>
+        <span class="ocs-label">End of the collection period:</span>
+        <span class="ocs-font-16"> {{signitureInfo.endDate}}</span>
+    </div>
+    <div class="ocs-signature">
+        <div class="flex-container">
+            <a target="_blank" class="icon-facebook " href="{{signitureInfo.socialMedia.facebook}}"
+                title="Visit our Facebook page">
+                <img src="assets/img/icon-facebook.png" alt="Facebook">
+            </a>
+            <a target="_blank" class="icon-twitter" href="{{signitureInfo.socialMedia.twitter}}" title="Visit our Twitter page">
+                <img src="assets/img/icon-twitter.png" alt="Twitter">
+            </a>
+            <a target="_blank" class="icon-instagram " href="{{signitureInfo.socialMedia.instagram}}"
+                title="Visit our Instagram page">
+                <img src="assets/img/instagram.png" alt="Instagram">
+            </a>
+            <a target="_blank" class="icon-linkedin" href="{{signitureInfo.socialMedia.linkedin}}" title="Visit our Linkedin page">
+                <img src="assets/img/linkedin.png" alt="Linkedin">
+            </a>
+        </div>
+    </div>
+</section>

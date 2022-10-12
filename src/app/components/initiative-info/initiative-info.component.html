@@ -1,10 +1,10 @@
 <div class="ocs-panel-style">
     <div app-initiative>
-        <div tabindex="-1" class="ocs-initiative ng-star-inserted">
+        <div tabindex="-1" class="ocs-initiative">
             <div class="default-logo">
                 <img id="main-logo" [src]="initiativeInfo.initiativeLogo" alt="">
             </div>
-            <div id="initiative-objectives" class="ocs-block-content mt-3 ng-star-inserted">
+            <div id="initiative-objectives" class="ocs-block-content mt-3">
                 <h3 class="ocs-label-content">Objectives</h3>
                 <div id="initiativeDetails" class="ocs-summary-content">
                     <p *ngFor="let objective of initiativeInfo.objectives; index as index">
@@ -15,7 +15,7 @@
                     </p>
                 </div>
             </div>
-            <div id="initiative-address" class="ocs-block-content ng-star-inserted">
+            <div id="initiative-address" class="ocs-block-content">
                 <h3 class="ocs-label-content"> Webpage of the initiative in the European Commission's register
                 </h3>
                 <div class="ocs-summary-content">
@@ -27,8 +27,8 @@
                     </a>
                 </div>
             </div>
-            <div id="showedinfo" aria-live="polite" class="ng-star-inserted"  *ngIf="moreInfoVisible" >
-                <div class="ocs-block-content ng-star-inserted">
+            <div id="showedinfo" aria-live="polite" *ngIf="moreInfoVisible" >
+                <div class="ocs-block-content">
                     <div id="description-title" class="ocs-label-content">
                         Website of this initiative (if any):
                     </div>
@@ -42,12 +42,12 @@
                         </a>
                     </div>
                 </div>
-                <div class="ocs-block-content ng-star-inserted">
-                    <div id="contact-person" class="ocs-label-content mb-2 ng-star-inserted"
+                <div class="ocs-block-content">
+                    <div id="contact-person" class="ocs-label-content mb-2"
                         *ngIf="initiativeInfo.contactRep || initiativeInfo.contactSub">
                         Contact persons
                     </div>
-                    <div class="ocs-summary-content mb-3 ng-star-inserted" *ngIf="initiativeInfo.contactRep">
+                    <div class="ocs-summary-content mb-3" *ngIf="initiativeInfo.contactRep">
                         <p id="initiative-rep">{{initiativeInfo.contactRep.name}}</p>
                         <a id="rep-email" [attr.href]="'mailto:' + initiativeInfo.contactRep.email"
                             [attr.title]="'You will be redirected to the external page: ' + initiativeInfo.contactRep.email">
@@ -56,7 +56,7 @@
                                 [attr.aria-label]="'You will be redirected to the external page: ' + initiativeInfo.contactRep.email"></i>
                         </a>
                     </div>
-                    <div class="ocs-summary-content mb-3 ng-star-inserted" *ngIf="initiativeInfo.contactSub">
+                    <div class="ocs-summary-content mb-3" *ngIf="initiativeInfo.contactSub">
                         <p id="initiative-sub">{{initiativeInfo.contactSub.name}}</p>
                         <a id="sub-email" [attr.href]="'mailto:' + + initiativeInfo.contactSub.email"
                             [attr.title]="'You will be redirected to the external page: ' + initiativeInfo.contactSub.email">

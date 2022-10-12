@@ -1,0 +1,43 @@
+.ocs-signature {
+    padding: 0.5em 1em;
+
+    a.icon-facebook,
+    a.icon-twitter,
+    a.icon-instagram,
+    a.icon-linkedin {
+        border: none;
+        font-size: 2.6em;
+        padding: 0 .2em 0 0;
+
+        img {
+            width: 2.8rem;
+        }
+    }
+
+    i {
+        margin-right: .3em;
+    }
+
+    .ocs-progress-bar {
+        font-size: 1.2em;
+        margin: 0.5em 0;
+
+        .progress {
+            background-color: #d2edfe !important;
+            border: .0714em solid #064e89 !important;
+            border-radius: 3px;
+            height: .4em;
+        }
+
+        .progress-bar {
+            background-color: #064e89 !important;
+            border: .1428em solid #064e89 !important;
+        }
+    }
+
+    .ocs-progress-bar-data div {
+        display: inline-block;
+        font-size: 1.2em;
+    }
+
+}
