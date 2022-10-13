@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Country } from 'src/app/typings/country'
 
 @Component({
@@ -7,6 +7,7 @@ import { Country } from 'src/app/typings/country'
   styleUrls: ['./initiative-form.component.scss']
 })
 export class InitiativeFormComponent {
+  @Input('initiative-id') initiativeId: string | number;
 
   visibleCountrySelector: boolean = true;
   visibleCountrySupport: boolean = false;

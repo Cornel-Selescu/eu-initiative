@@ -1,3 +1,16 @@
-<initiative-details [details]="initiative?.details"></initiative-details>
-<online-signatures [signiture-info]="initiative?.signaturesInfo"></online-signatures>
-<recent-signatories [signators]="initiative?.recentSignatories"></recent-signatories>
+<initiavive-title [title]="initiative?.title"></initiavive-title>
+
+<div id="skipLinkPath" class="row">
+    <div class="col-md-5 padding-container ocs-container-left">
+        <initiative-details [details]="initiative?.details"></initiative-details>
+        <online-signatures [signiture-info]="initiative?.signaturesInfo"></online-signatures>
+        <recent-signatories [signators]="initiative?.recentSignatories"></recent-signatories>
+    </div>
+
+    <div class="col-md-7 padding-container ocs-container-right">
+        <initiative-form [initiative-id]="initiative?.id"></initiative-form>
+    </div>
+</div>
+
+
+<info-support></info-support>

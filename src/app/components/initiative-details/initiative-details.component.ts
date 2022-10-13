@@ -8,8 +8,10 @@ import { InitiativeDetails } from 'src/app/typings/initiative-details';
 })
 export class InitiativeDetailsComponent  {
   @Input('details') initiativeInfo: InitiativeDetails;
+
   toggleMoreInfo(): void {
     this.moreInfoVisible = !this.moreInfoVisible;
   }
+  
   moreInfoVisible: boolean = false;
 }

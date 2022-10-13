@@ -4,6 +4,8 @@ import { Signator } from 'src/app/typings/signator';
 
 
 export type InitiativeInfo = {
+    id: string | number,
+    title: string,
     details: InitiativeDetails,
     signaturesInfo: SignitureInfo,
     recentSignatories: Signator[]

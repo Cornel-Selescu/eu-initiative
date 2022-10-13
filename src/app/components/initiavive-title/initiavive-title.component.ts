@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./initiavive-title.component.scss']
 })
 export class InitiaviveTitleComponent {
-  @Input('title') title: string = 'Win It On The Pitch';
+  @Input('title') title: string;
 }

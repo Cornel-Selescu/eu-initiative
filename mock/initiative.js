@@ -1,4 +1,6 @@
 const initiatives = [{
+    id: 1,
+    title: 'End The Slaughter Age',
     details: {
         initiativeLogo: 'http://localhost:3000/end-slaughter.png',
         objectives: [
