@@ -1,92 +1,20 @@
 <initiavive-title></initiavive-title>
-<div id="skipLinkPath" class="row ng-star-inserted">
+
+
+<div id="skipLinkPath" class="row">
     <div class="col-md-5 padding-container ocs-container-left">
         <initiative-info></initiative-info>
         <online-signatures></online-signatures>
         <recent-signatories></recent-signatories>
     </div>
     <div class="col-md-7 padding-container ocs-container-right">
-        <div app-form>
-            <div class="ocs-form-initiative">
-                <div class="ocs-form-background">
-                    <!---->
-                    <h2 id="initiativeTitle" class="ocs-form-initiative-title">Support this initiative proposed by
-                        European Union citizens</h2>
-                </div>
-                <!---->
-                <!---->
-                <!---->
-                <form novalidate="" aria-labelledby="initiativeTitle" class="ng-pristine ng-valid ng-touched">
-                    <fieldset class="ocs-form-country ng-star-inserted">
-                        <legend class="hidden">Select language</legend>
-                        <ux-form-group styleclass="mb-2 ocs-form-highlight">
-                            <div class="mb-2 ocs-form-highlight ux-form-group ux-form-group--no-label ux-form-group--vertical ux-form-group__input-group"
-                                data-e2e="ux-form-group">
-                                <!---->
-                                <div class="col-12 ux-form-group__label-wrapper form-control-label ng-star-inserted">
-                                </div>
-                                <!---->
-                                <div class="col-12">
-                                    <div class="ux-form-group__input-content">
-                                        <div><select euiselect="" id="country" name="country"
-                                                class="form-control custom-select-1 eui-select ng-pristine ng-valid ng-touched">
-                                                <option value="#">Select your country of nationality</option>
-                                                <option value="at" class="ng-star-inserted">Austria</option>
-                                                <option value="be" class="ng-star-inserted">Belgium</option>
-                                                <option value="bg" class="ng-star-inserted">Bulgaria</option>
-                                                <option value="hr" class="ng-star-inserted">Croatia</option>
-                                                <option value="cy" class="ng-star-inserted">Cyprus</option>
-                                                <option value="cz" class="ng-star-inserted">Czechia</option>
-                                                <option value="dk" class="ng-star-inserted">Denmark</option>
-                                                <option value="ee" class="ng-star-inserted">Estonia</option>
-                                                <option value="fi" class="ng-star-inserted">Finland</option>
-                                                <option value="fr" class="ng-star-inserted">France</option>
-                                                <option value="de" class="ng-star-inserted">Germany</option>
-                                                <option value="gr" class="ng-star-inserted">Greece</option>
-                                                <option value="hu" class="ng-star-inserted">Hungary</option>
-                                                <option value="ie" class="ng-star-inserted">Ireland</option>
-                                                <option value="it" class="ng-star-inserted">Italy</option>
-                                                <option value="lv" class="ng-star-inserted">Latvia</option>
-                                                <option value="lt" class="ng-star-inserted">Lithuania</option>
-                                                <option value="lu" class="ng-star-inserted">Luxembourg</option>
-                                                <option value="mt" class="ng-star-inserted">Malta</option>
-                                                <option value="nl" class="ng-star-inserted">Netherlands</option>
-                                                <option value="pl" class="ng-star-inserted">Poland</option>
-                                                <option value="pt" class="ng-star-inserted">Portugal</option>
-                                                <option value="ro" class="ng-star-inserted">Romania</option>
-                                                <option value="sk" class="ng-star-inserted">Slovakia</option>
-                                                <option value="si" class="ng-star-inserted">Slovenia</option>
-                                                <option value="es" class="ng-star-inserted">Spain</option>
-                                                <option value="se" class="ng-star-inserted">Sweden</option>
-                                                <!---->
-                                            </select>
-                                            <!---->
-                                        </div>
-                                        <!---->
-                                        <!---->
-                                    </div>
-                                </div>
-                            </div>
-                            <!---->
-                            <!---->
-                        </ux-form-group>
-                    </fieldset>
-                    <!---->
-                    <!---->
-                    <!---->
-                    <p></p>
-                    <!---->
-                    <p></p>
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                </form>
-            </div>
+        <div class="ocs-form-initiative">
+            <country-selector hidden="true"></country-selector>
+            <country-support hidden="true"></country-support>
         </div>
+        <initiative-form></initiative-form>
     </div>
 </div>
+
 
 <info-support></info-support>

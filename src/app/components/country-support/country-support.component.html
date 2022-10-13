@@ -1,0 +1,33 @@
+<fieldset>
+    <div class="ocs-support-country">
+        <div class="border-support-country">
+            <p><strong>Support this citizens’ initiative by filling in the form or using an eID</strong></p>
+            <div class="form-group">
+                <input id="legaleID" name="legaleID" type="checkbox" class="form-control eui-input-text">
+                <label euilabel="" for="legaleID" aria-disabled="false" class="eui-label">
+                    I have read the
+                    <a href="https://europa.eu/citizens-initiative/privacy-policy-concerning-signatories-personal-data-collected-using-central-online-collection_en"
+                        target="_blank" title="Read the privacy statement">Privacy statement</a>
+                    and the content of this
+                    <a href="https://europa.eu/citizens-initiative/initiatives/details/2021/000011"
+                        target="_blank">citizens’ initiative</a>.
+                </label>
+            </div>
+            <div class="form-group">
+                <input id="chkNotSupported" name="chkNotSupported" type="checkbox" class="form-control eui-input-text">
+                <label for="chkNotSupported">
+                    I hereby certify that I have not already supported this citizens’ initiative.
+                </label>
+            </div>
+            <div class="ocs-support-buttons overflow-wrap">
+                <ux-button styleClass="ux-u-width-10" iconClass="fa fa-pencil-square-o" isDisabled="false">
+                    <span> Fill in the form </span>
+                </ux-button>
+                <div class="separate-box"><span>OR</span></div>
+                <ux-button styleClass="ux-u-width-10" iconClass="fa fa-user" isDisabled="true">
+                    <span> use the eID of your country </span>
+                </ux-button>
+            </div>
+        </div>
+    </div>
+</fieldset>

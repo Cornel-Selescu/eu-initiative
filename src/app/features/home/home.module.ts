@@ -10,6 +10,9 @@ import { InitiaviveTitleComponent } from '../../components/initiavive-title/init
 import { InitiativeInfoComponent } from '../../components/initiative-info/initiative-info.component';
 import { RecentSignatoriesComponent } from '../../components/recent-signatories/recent-signatories.component';
 import { OnlineSignaturesComponent } from '../../components/online-signatures/online-signatures.component';
+import { InitiativeFormComponent } from '../../components/initiative-form/initiative-form.component';
+import { CountrySelectorComponent } from '../../components/country-selector/country-selector.component';
+import { CountrySupportComponent } from '../../components/country-support/country-support.component';
 
 @NgModule({
     imports: [
@@ -21,8 +24,11 @@ import { OnlineSignaturesComponent } from '../../components/online-signatures/on
         InfoSupportComponent,
         InitiaviveTitleComponent,
         InitiativeInfoComponent,
-        RecentSignatoriesComponent,
-        OnlineSignaturesComponent
+        RecentSignatoriesComponent, 
+        OnlineSignaturesComponent,
+        InitiativeFormComponent,
+        CountrySelectorComponent,
+        CountrySupportComponent
     ]
 })
 export class Module { }

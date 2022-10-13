@@ -1,0 +1,62 @@
+.country-selector {
+    padding: 0 !important;
+
+    .col-md-8 {
+        padding: 0 !important;
+        flex: 0 0 auto;
+        width: 100% !important;
+        height: 50px;
+    }
+}
+
+.initiative-form {
+    .col-md-8 {
+        padding: 0 !important;
+        flex: 0 0 auto;
+        width: 100% !important;
+    }
+}
+
+ux-form-group {
+    .ux-form-group {
+        margin-bottom: 0 !important;
+    }
+}
+
+.pos-relative {
+    position: relative;
+}
+
+.pad-0 {
+    padding: 0 !important;
+}
+
+
+.eui-select:not([readonly]):not([multiple], [size]),
+.eui-select[size="1"] {
+    appearance: none;
+    background-color: var(--eui-base-color-white);
+    background-image: url('data:image/svg+xml;utf8, <svg focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" name="chevron-down" aria-label="Close menu" role="img"><path d="M8 11L3 6 3.7 5.3 8 9.6 12.3 5.3 13 6z"/></svg>');
+    background-position: calc(100% - var(--eui-base-spacing-s)) center;
+    background-repeat: no-repeat;
+    background-size: var(--eui-base-spacing-m);
+    padding-right: var(--eui-base-spacing-xl);
+}
+
+.eui-select {
+    font: 400 1rem/1.25rem arial, sans-serif;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: var(--eui-base-color-white);
+    border: 1px solid var(--eui-base-color-grey-50);
+    border-radius: var(--eui-base-border-radius);
+    color: var(--eui-base-color-grey-100);
+    display: block;
+    padding: calc(var(--eui-base-spacing-s) - 1px);
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--eui-base-color);
+}

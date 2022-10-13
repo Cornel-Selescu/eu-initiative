@@ -1,0 +1,18 @@
+<div class="ocs-form-background">
+    <h2 id="initiativeTitle" class="ocs-form-initiative-title">
+        Support this initiative proposed by European Union citizens
+    </h2>
+</div>
+<form novalidate="" aria-labelledby="initiativeTitle">
+    <fieldset class="ocs-form-country">
+        <legend class="hidden">Select language</legend>
+        <ux-form-group styleClass="mb-2 ocs-form-highlight country-selector">
+            <select euiselect="" id="country" name="country" class="form-control custom-select-1 eui-select">
+                <option value="#">Select your country of nationality</option>
+                <option *ngFor="let country of countriesList" [attr.value]="country.code">
+                    {{country.country}}
+                </option>
+            </select>
+        </ux-form-group>
+    </fieldset>
+</form>
