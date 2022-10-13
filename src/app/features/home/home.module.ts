@@ -13,6 +13,7 @@ import { OnlineSignaturesComponent } from '../../components/online-signatures/on
 import { InitiativeFormComponent } from '../../components/initiative-form/initiative-form.component';
 import { CountrySelectorComponent } from '../../components/country-selector/country-selector.component';
 import { CountrySupportComponent } from '../../components/country-support/country-support.component';
+import { SupporterInfoComponent } from '../../components/supporter-info/supporter-info.component';
 
 @NgModule({
     imports: [
@@ -28,7 +29,8 @@ import { CountrySupportComponent } from '../../components/country-support/countr
         OnlineSignaturesComponent,
         InitiativeFormComponent,
         CountrySelectorComponent,
-        CountrySupportComponent
+        CountrySupportComponent,
+        SupporterInfoComponent
     ]
 })
 export class Module { }

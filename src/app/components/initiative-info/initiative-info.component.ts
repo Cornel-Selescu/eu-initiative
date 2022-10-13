@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InitiativeInfo } from './InitiativeInfo';
+import { InitiativeInfo } from '../../typings/InitiativeInfo';
 
 @Component({
   selector: 'initiative-info',
