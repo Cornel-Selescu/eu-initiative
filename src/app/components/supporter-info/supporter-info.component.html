@@ -1,6 +1,6 @@
 <div class="border-form-initiative ocs-form-initiative initiative-form">
     <div>
-        <button class="ocs-arrow-back ">
+        <button class="ocs-arrow-back " (click)="onBack()">
             <i aria-hidden="true" class="fa fa-arrow-left"></i> Back </button>
 
         <h2 id="initiativeTitle" class="ocs-form-initiative-title">
@@ -31,16 +31,11 @@
                     <label class="col-12 form-control-label" for="documentType">
                         Document or number type
                     </label>
-                    <div class="col-12">
-                        <ux-form-control>
-                            <select>
-                                <option value="passport">pașaport</option>
-                                <option value="id.card">carte de identitate
-                                </option>
-                                <option value="personal.id">Cod Numeric Personal</option>
-                            </select>
-                        </ux-form-control>
-                    </div>
+                    <select class="form-control custom-select-1 eui-select">
+                        <option *ngFor="let document of country.documentOptions" [attr.value]="document.code">
+                            {{document.name}}
+                        </option>
+                    </select>
                 </ux-form-group>
                 <ux-form-group id="document" styleClass="pos-relative pad-0">
                     <label class="col-12 form-control-label" for="document">
@@ -54,61 +49,69 @@
         </fieldset>
         <fieldset class="mb-3 ocs-form-personal ">
             <legend>Personal information</legend>
-            <div app-property>
-                <ux-form-group  styleClass="pos-relative pad-0">
-                    <div class="ux-form-group ux-form-group--vertical ux-form-group__input-group"
-                        data-e2e="ux-form-group"><label class="col-12 ux-form-group__label-wrapper form-control-label "
-                            for="">
-                            <span class="ux-form-group__label ">Full first names</span>
-                        </label>
+            <ux-form-group styleClass="pos-relative pad-0">
+                <label class="col-12 form-control-label" for="full.first.names">
+                    <span class="ux-form-group__label ">Full first names</span>
+                </label>
+                <input id="full.first.names" class="eui-input-text">
+            </ux-form-group>
+            <ux-form-group styleClass="pos-relative pad-0">
+                <label class="col-12 form-control-label " for="family.names">
+                    <span class="ux-form-group__label ">Family names</span>
+                </label>
+                <input id="family.names" class="eui-input-text">
+            </ux-form-group>
+        </fieldset>
 
-                        <div class="col-12">
-                            <div class="ux-form-group__input-content">
-                                <div><input euiinputtext="" aria-disabled="false" id="full.first.names"
-                                        class="eui-input-text ng-untouched ng-pristine  ">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </ux-form-group>
-            </div>
+        <fieldset>
+            <ux-form-group>
+                <label class="col-12 form-control-label" for="date.of.birth">Date of birth</label>
 
-            <div app-property>
-                <ux-form-group  styleClass="pos-relative pad-0">
-                    <div class="ux-form-group ux-form-group--vertical ux-form-group__input-group"
-                        data-e2e="ux-form-group"><label class="col-12 ux-form-group__label-wrapper form-control-label "
-                            for="">
-                            <span class="ux-form-group__label ">Family names</span>
-                        </label>
-                        <div class="col-12">
-                            <div class="ux-form-group__input-content">
-                                <div><input euiinputtext="" aria-disabled="false" id="family.names"
-                                        class="eui-input-text ng-untouched ng-pristine  ">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </ux-form-group>
-            </div>
+                <div class="day">
+                    <select euiselect name="day" id="day.date" required aria-label="Day"
+                        class="form-control custom-select-1 eui-select">
+                        <option>Day</option>
+                        <option *ngFor="let day of daysInOneMonth">{{day}}</option>
+                    </select>
+                </div>
+                <span class="date-separator">/</span>
+                <div class="month">
+                    <select euiselect name="month" id="month.date" required aria-label="Month"
+                        class="form-control custom-select-1 eui-select">
+                        <option>Month</option>
+                        <option *ngFor="let month of monthsInOneYear; let index = index" [value]="index + 1">{{month}}
+                        </option>
+                    </select>
+                </div>
+                <span class="date-separator">/</span>
+                <div class="year">
+                    <select euiselect name="year" id="year.date" required aria-label="Year"
+                        class="form-control custom-select-1 eui-select">
+                        <option>Year</option>
+                        <option *ngFor="let year of selectableYears">{{year}}</option>
+                    </select>
+                </div>
+
+            </ux-form-group>
         </fieldset>
 
         <fieldset class="mb-3 ocs-form-legal ">
-            <legend class="hidden">Privacidad</legend>
-            <div id="certifyL" class="form-group"><input euiinputtext="" id="certify" name="certify" type="checkbox"
-                    class="form-control eui-input-text ng-untouched ng-pristine " aria-disabled="false">
-                <label euilabel="" for="certify" class="label-flex eui-label" aria-disabled="false">
+            <div class="form-group" *ngIf="hasStatement">
+                <input id="certify" name="certify" type="checkbox" class="form-control eui-input-text">
+                <label euilabel="" for="certify" class="label-flex eui-label">
                     I hereby certify that the information that I have provided in this form is correct and that
                     I have not already supported this initiative.</label>
             </div>
-            <div id="privacyL" class="form-group "><input euiinputtext="" id="privacy" name="privacy" type="checkbox"
-                    class="form-control eui-input-text ng-untouched ng-pristine " aria-disabled="false">
-                <label euilabel="" for="privacy" class="label-flex eui-label" aria-disabled="false">
+            <div class="form-group ">
+                <input id="privacy" name="privacy" type="checkbox" class="form-control eui-input-text">
+                <label euilabel="" for="privacy" class="label-flex eui-label">
                     I have read the
                     <a href="https://europa.eu/citizens-initiative/privacy-policy-concerning-signatories-personal-data-collected-using-central-online-collection_en"
                         target="_blank" title="Read the privacy statement">Privacy statement</a>
                     and the content of this
                     <a href="https://europa.eu/citizens-initiative/initiatives/details/2022/000003"
-                        target="_blank">citizens’ initiative</a>.</label>
+                        target="_blank">citizens’
+                        initiative</a>.</label>
             </div>
             <ux-block-content>
                 <div class="ux-block-content" data-e2e="ux-block-content">

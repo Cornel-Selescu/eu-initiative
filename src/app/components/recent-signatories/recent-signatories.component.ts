@@ -1,37 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-
-type Signator = {
-  country: string,
-  date: string
-};
+import { Component, Input } from '@angular/core';
+import { Signator } from 'src/app/typings/signator';
 
 @Component({
   selector: 'recent-signatories',
   templateUrl: './recent-signatories.component.html',
   styleUrls: ['./recent-signatories.component.scss']
 })
-export class RecentSignatoriesComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  signators: Signator[] = [{
-    country: 'Italy',
-    date: '12-Oct-2022'
-  }, {
-    country: 'France',
-    date: '11-Oct-2022'
-  }, {
-    country: 'Italy',
-    date: '11-Oct-2022'
-  }, {
-    country: 'France',
-    date: '11-Oct-2022'
-  }, {
-    country: 'Italy',
-    date: '11-Oct-2022'
-  }]
-
+export class RecentSignatoriesComponent {
+  @Input('signators') signators: Signator[];
 }

@@ -1,4 +1,4 @@
-export type InitiativeInfo = {
+export type InitiativeDetails = {
     initiativeLogo: string,
     objectives: string[],
     commissionWebpage: string,

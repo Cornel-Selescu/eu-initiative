@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { InitiativeInfo } from '../../typings/InitiativeInfo';
+import { InitiativeDataService } from 'src/app/services/initiative-data.service';
+
+import { InitiativeInfo } from 'src/app/typings/initiative-info';
 
 @Component({
   selector: 'initiative-info',
@@ -8,35 +10,16 @@ import { InitiativeInfo } from '../../typings/InitiativeInfo';
 
 })
 export class InitiativeInfoComponent implements OnInit {
-
-  constructor() { }
-
+  initiative: InitiativeInfo;
+  constructor(private initiativeServce: InitiativeDataService) {
+  }
   ngOnInit(): void {
+    this.initiativeServce.getInitiative().subscribe(response => {
+      this.initiative = response as InitiativeInfo;
+      console.log(this.initiative);
+    }, error => {
+      alert('Error ocured');
+      console.log(error);
+    });
   }
-
-  toggleMoreInfo(): void {
-    this.moreInfoVisible = !this.moreInfoVisible;
-  }
-
-  moreInfoVisible: boolean = false;
-  initiativeInfo: InitiativeInfo = {
-      initiativeLogo: '/assets/img/end-slaughter.png',
-      objectives: [
-        `1 - Exclude livestock farming from list of activities eligible for agricultural subsidies and include ethical and environmentally friendly alternatives, such as cellular agriculture and plant proteins.`,
-        `2 - Incentives for the production and sale of plant-based products and those made using cellular agriculture.`
-      ],
-      commissionWebpage: 'https://europa.eu/citizens-initiative/initiatives/details/2022/000003',
-      initiativeWebsite: 'https://www.endtheslaughterage.eu/',
-      contactRep: {
-        name: 'Filippo Borsellino',
-        email: 'endtheslaughterage@gmail.com'
-      },
-      contactSub: {
-        name: 'Darryl Grima',
-        email: 'info@veggymalta.com'
-      },
-      registrationNumber: 'ECI(2022)000003',
-      registrationDate: '05/06/2022'
-    }
-
 }

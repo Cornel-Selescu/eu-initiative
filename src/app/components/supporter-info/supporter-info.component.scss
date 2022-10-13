@@ -1,0 +1,23 @@
+select {
+    font-size: 15px !important;
+}
+
+.day {
+    width: 20%;
+    display: inline-block;
+}
+
+.month {
+    width: 20%;
+    display: inline-block;
+}
+
+.year {
+    width: 20%;
+    display: inline-block;
+}
+
+.date-separator {
+    font-size: 28px;
+    padding: 25px;;
+}

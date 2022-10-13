@@ -14,6 +14,7 @@ import { InitiativeFormComponent } from '../../components/initiative-form/initia
 import { CountrySelectorComponent } from '../../components/country-selector/country-selector.component';
 import { CountrySupportComponent } from '../../components/country-support/country-support.component';
 import { SupporterInfoComponent } from '../../components/supporter-info/supporter-info.component';
+import { InitiativeDetailsComponent } from '../../components/initiative-details/initiative-details.component';
 
 @NgModule({
     imports: [
@@ -30,7 +31,8 @@ import { SupporterInfoComponent } from '../../components/supporter-info/supporte
         InitiativeFormComponent,
         CountrySelectorComponent,
         CountrySupportComponent,
-        SupporterInfoComponent
+        SupporterInfoComponent,
+        InitiativeDetailsComponent
     ]
 })
 export class Module { }

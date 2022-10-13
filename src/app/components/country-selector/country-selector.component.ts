@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { Country } from '../../typings/country'
+import { Country } from 'src/app/typings/country'
+import { InitiativeDataService } from 'src/app/services/initiative-data.service';
 
 @Component({
   selector: 'country-selector',
@@ -9,36 +10,18 @@ import { Country } from '../../typings/country'
 export class CountrySelectorComponent {
   @Output('select') select = new EventEmitter();
 
-  countriesList: Country[] = [
-    { code: 'at', name: 'Austria', hasEID: true },
-    { code: 'be', name: 'Belgium', hasEID: true },
-    { code: 'bg', name: 'Bulgaria' },
-    { code: 'hr', name: 'Croatia', hasEID: true },
-    { code: 'cy', name: 'Cyprus' },
-    { code: 'cz', name: 'Czechia', hasEID: true },
-    { code: 'dk', name: 'Denmark' },
-    { code: 'ee', name: 'Estonia', hasEID: true },
-    { code: 'fi', name: 'Finland' },
-    { code: 'fr', name: 'France' },
-    { code: 'de', name: 'Germany', hasEID: true },
-    { code: 'gr', name: 'Greece' },
-    { code: 'hu', name: 'Hungary' },
-    { code: 'ie', name: 'Ireland' },
-    { code: 'it', name: 'Italy', hasEID: true },
-    { code: 'lv', name: 'Latvia', hasEID: true },
-    { code: 'lt', name: 'Lithuania', hasEID: true },
-    { code: 'lu', name: 'Luxembourg', hasEID: true },
-    { code: 'mt', name: 'Malta', hasEID: true },
-    { code: 'nl', name: 'Netherlands', hasEID: true },
-    { code: 'pl', name: 'Poland' },
-    { code: 'pt', name: 'Portugal', hasEID: true },
-    { code: 'ro', name: 'Romania' },
-    { code: 'sk', name: 'Slovakia', hasEID: true },
-    { code: 'si', name: 'Slovenia' },
-    { code: 'es', name: 'Spain', hasEID: true },
-    { code: 'se', name: 'Sweden' },
-  ];
+  constructor(private initiativeServce: InitiativeDataService) {
+  }
 
+  ngOnInit(): void {
+    this.initiativeServce.getCountries().subscribe(response => {
+      this.countriesList = response as Country[];
+    }, error => {
+      alert('Error ocured');
+      console.log(error);
+    });
+  }
+  countriesList: Country[];
   selectedCountryCode: string = '';
 
   onSelect(): void {

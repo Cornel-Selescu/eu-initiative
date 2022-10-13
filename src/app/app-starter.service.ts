@@ -30,7 +30,6 @@ export class AppStarterService {
         return zip(
             this.initUserService().pipe(
                 switchMap((userStatus) => {
-                    console.log(userStatus);
                     return this.i18nService.init();
                 }),
             ),

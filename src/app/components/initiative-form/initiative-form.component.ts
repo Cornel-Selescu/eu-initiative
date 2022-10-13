@@ -1,25 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { Country } from '../../typings/country'
+import { Component } from '@angular/core';
+import { Country } from 'src/app/typings/country'
 
 @Component({
   selector: 'initiative-form',
   templateUrl: './initiative-form.component.html',
   styleUrls: ['./initiative-form.component.scss']
 })
-export class InitiativeFormComponent implements OnInit {
+export class InitiativeFormComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
   visibleCountrySelector: boolean = true;
   visibleCountrySupport: boolean = false;
   visibleSuporterInfo: boolean = false;
 
   statementIsRead: boolean = false;
+  selectedCountry: Country;
 
   onCountrySelect(country: Country): void {
-    console.log(country);
+    this.selectedCountry = country;
     this.visibleCountrySelector = false;
     this.statementIsRead = false;
     if (country.hasEID) {
@@ -33,5 +30,10 @@ export class InitiativeFormComponent implements OnInit {
     this.visibleCountrySupport = false;
     this.visibleSuporterInfo = true;
     this.statementIsRead = true;
+  }
+
+  showCountrySelect() {
+    this.visibleSuporterInfo = false;
+    this.visibleCountrySelector = true;
   }
 }
