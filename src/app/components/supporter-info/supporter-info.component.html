@@ -31,7 +31,8 @@
             <div app-document-property>
                 <ux-form-group styleClass="pos-relative pad-0">
                     <label class="col-12 form-control-label" for="legal-document"> Document or number type </label>
-                    <select id="legal-document" formControlName="legalDocument" class="form-control custom-select-1 eui-select">
+                    <select id="legal-document" formControlName="legalDocument"
+                        class="form-control custom-select-1 eui-select">
                         <option *ngFor="let document of country.documentOptions" [attr.value]="document.code">
                             {{document.name}}
                         </option>
@@ -42,6 +43,9 @@
                     <div class="col-12">
                         <input id="document-id" formControlName="documentId" type="text">
                     </div>
+                    <div class="errors" *ngIf="documentId.touched && documentId.invalid">
+                        <p *ngIf="documentId.errors.required">The number is required.</p>
+                    </div>
                 </ux-form-group>
             </div>
         </fieldset>
@@ -50,10 +54,26 @@
             <ux-form-group styleClass="pos-relative pad-0">
                 <label class="col-12 form-control-label" for="first-name"> Full first names </label>
                 <input formControlName="firstName" id="first-name" class="eui-input-text">
+                <div class="errors" *ngIf="firstName.touched && firstName.invalid">
+                    <p *ngIf="firstName.errors.required">The first name is required.</p>
+                    <p *ngIf="firstName.errors.pattern">The first name contains forbidden characters.</p>
+                    <p *ngIf="firstName.errors.minlength">The first name should be at least
+                        {{firstName.errors.minlength.requiredLength}} characters long.</p>
+                    <p *ngIf="firstName.errors.maxlength">The first name should be shorter than
+                        {{firstName.errors.maxlength.requiredLength}} characters.</p>
+                </div>
             </ux-form-group>
             <ux-form-group styleClass="pos-relative pad-0">
                 <label class="col-12 form-control-label " for="last-name"> Family names </label>
                 <input formControlName="lastName" id="last-name" class="eui-input-text">
+                <div class="errors" *ngIf="lastName.touched && lastName.invalid">
+                    <p *ngIf="lastName.errors.required">The last name is required.</p>
+                    <p *ngIf="lastName.errors.pattern">The last name contains forbidden characters.</p>
+                    <p *ngIf="lastName.errors.minlength">The last name should be at least
+                        {{lastName.errors.minlength.requiredLength}} characters long.</p>
+                    <p *ngIf="lastName.errors.maxlength">The last name should be shorter than
+                        {{lastName.errors.maxlength.requiredLength}} characters.</p>
+                </div>
             </ux-form-group>
         </fieldset>
 
@@ -61,39 +81,48 @@
             <ux-form-group>
                 <label class="col-12 form-control-label" for="dateOfBirth"> Date of birt</label>
                 <div class="day">
-                    <select euiselect formControlName="day" name="day" id="day"  aria-label="Day"
+                    <select euiselect formControlName="day" name="day" id="day" aria-label="Day"
                         class="form-control custom-select-1 eui-select">
-                        <option>Day</option>
-                        <option *ngFor="let day of daysInOneMonth">{{day}}</option>
+                        <option value="">Day</option>
+                        <option *ngFor="let day of daysInOneMonth" [value]="day">{{day}}</option>
                     </select>
                 </div>
                 <span class="date-separator">/</span>
                 <div class="month">
-                    <select euiselect formControlName="month" name="month" id="month"  aria-label="Month"
+                    <select euiselect formControlName="month" name="month" id="month" aria-label="Month"
                         class="form-control custom-select-1 eui-select">
-                        <option>Month</option>
+                        <option value="">Month</option>
                         <option *ngFor="let month of monthsInOneYear; let index = index" [value]="index + 1">{{month}}
                         </option>
                     </select>
                 </div>
                 <span class="date-separator">/</span>
                 <div class="year">
-                    <select euiselect formControlName="year" name="year" id="year"  aria-label="Year"
+                    <select euiselect formControlName="year" name="year" id="year" aria-label="Year"
                         class="form-control custom-select-1 eui-select">
-                        <option>Year</option>
-                        <option *ngFor="let year of selectableYears">{{year}}</option>
+                        <option value="">Year</option>
+                        <option *ngFor="let year of selectableYears" [value]="year">{{year}}</option>
                     </select>
                 </div>
 
             </ux-form-group>
+            <div class="errors"
+                *ngIf="(day.touched && day.invalid) || (month.touched && month.invalid) || (year.touched && year.invalid)">
+                <p *ngIf="day?.errors?.required || month?.errors?.required || year?.errors?.required">
+                    The date is required.
+                </p>
+            </div>
         </fieldset>
 
         <fieldset class="mb-3 ocs-form-legal ">
             <div class="form-group" *ngIf="!country.hasEID">
-                <input id="certify" formControlName="certyfy" name="certify" type="checkbox" class="form-control">
-                <label for="certify"  class="label-flex eui-label">
+                <input id="certify" formControlName="certify" name="certify" type="checkbox" class="form-control">
+                <label for="certify" class="label-flex eui-label">
                     I hereby certify that the information that I have provided in this form is correct and that
                     I have not already supported this initiative.</label>
+                <div class="errors" *ngIf="certify.touched && certify.invalid">
+                    <p *ngIf="certify.errors.requiredtrue">This box needs to be checked.</p>
+                </div>
             </div>
             <div class="form-group" *ngIf="!country.hasEID">
                 <input id="statement" formControlName="statement" name="statement" type="checkbox" class="form-control">
@@ -105,6 +134,9 @@
                     <a href="https://europa.eu/citizens-initiative/initiatives/details/2022/000003"
                         target="_blank">citizens’
                         initiative</a>.</label>
+                <div class="errors" *ngIf="statement.touched && statement.invalid">
+                    <p *ngIf="statement.errors.requiredtrue">This box needs to be checked.</p>
+                </div>
             </div>
             <div class="mt-5 mb-4">
                 <ux-block-content>
