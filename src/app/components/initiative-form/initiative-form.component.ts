@@ -16,15 +16,22 @@ export class InitiativeFormComponent implements OnInit {
   visibleCountrySupport: boolean = false;
   visibleSuporterInfo: boolean = false;
 
+  statementIsRead: boolean = false;
+
   onCountrySelect(country: Country): void {
     console.log(country);
     this.visibleCountrySelector = false;
-    if(country.hasEID) {
+    this.statementIsRead = false;
+    if (country.hasEID) {
       this.visibleCountrySupport = true;
-      //and form hides one of the checkboxes
     } else {
       this.visibleSuporterInfo = true;
     }
   }
 
+  showSupporterInfo() {
+    this.visibleCountrySupport = false;
+    this.visibleSuporterInfo = true;
+    this.statementIsRead = true;
+  }
 }

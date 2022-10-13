@@ -1,5 +1,5 @@
 <div class="ocs-form-initiative">
     <country-selector *ngIf="visibleCountrySelector" (select)="onCountrySelect($event)"></country-selector>
-    <country-support *ngIf="visibleCountrySupport"></country-support>
+    <country-support *ngIf="visibleCountrySupport" (fill-form)="showSupporterInfo()"></country-support>
 </div>
 <supporter-info *ngIf="visibleSuporterInfo"></supporter-info>
