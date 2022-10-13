@@ -9,6 +9,7 @@ const port = 3000;
 const countries = require('./countries')
 const initiative = require('./initiative')
 
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/api/countries', (req, res) => {

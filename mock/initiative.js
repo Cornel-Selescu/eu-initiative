@@ -1,7 +1,6 @@
-
-module.exports = {
+const initiatives = [{
     details: {
-        initiativeLogo: '/assets/img/end-slaughter.png',
+        initiativeLogo: 'http://localhost:3000/end-slaughter.png',
         objectives: [
             `1 - Exclude livestock farming from list of activities eligible for agricultural subsidies and include ethical and environmentally friendly alternatives, such as cellular agriculture and plant proteins.`,
             `2 - Incentives for the production and sale of plant-based products and those made using cellular agriculture.`
@@ -46,4 +45,9 @@ module.exports = {
         country: 'Italy',
         date: '11-Oct-2022'
     }]
-};
+}];
+
+
+
+
+module.exports = initiatives[0];
