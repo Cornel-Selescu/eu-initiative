@@ -8,41 +8,39 @@
     </div>
     <div class="ocs-country-selected ">
         <p>Your country of nationality</p>
-        <p class="highlighted">Romania</p>
+        <p class="highlighted">{{country.name}}</p>
     </div>
-    <form novalidate="" aria-labelledby="initiativeTitle">
-        <p class="ocs-message-info ">Please provide the following data.</p>
-        <p class="ocs-message-info ">
-            Why? Once the collection is over, your statement of support
-            needs to be verified by the competent authorities of your country. They have requested a specific
-            set of personal data, as described in the
-            <a href="https://eur-lex.europa.eu/legal-content/en/TXT/PDF/?uri=CELEX:32019R0788" class="dgtc-link"
-                target="_blank">ECI Regulation</a>.
-            Your personal data are
-            <a href="https://europa.eu/citizens-initiative/privacy-policy-concerning-signatories-personal-data-collected-using-central-online-collection_en"
-                class="dgtc-link" target="_blank">duly protected</a>.
-        </p>
-        <p class="ocs-message-required ">All fields are mandatory</p>
+    <form [formGroup]="initiativeForm" (ngSubmit)="onSubmit()">
+        <div>
+            <p class="ocs-message-info ">Please provide the following data.</p>
+            <p class="ocs-message-info ">
+                Why? Once the collection is over, your statement of support
+                needs to be verified by the competent authorities of your country. They have requested a specific
+                set of personal data, as described in the
+                <a href="https://eur-lex.europa.eu/legal-content/en/TXT/PDF/?uri=CELEX:32019R0788" class="dgtc-link"
+                    target="_blank">ECI Regulation</a>.
+                Your personal data are
+                <a href="https://europa.eu/citizens-initiative/privacy-policy-concerning-signatories-personal-data-collected-using-central-online-collection_en"
+                    class="dgtc-link" target="_blank">duly protected</a>.
+            </p>
+            <p class="ocs-message-required ">All fields are mandatory</p>
 
+        </div>
         <fieldset class="mb-3 ocs-form-document ">
             <legend>Personal identification</legend>
             <div app-document-property>
-                <ux-form-group id="documentType" styleClass="pos-relative pad-0">
-                    <label class="col-12 form-control-label" for="documentType">
-                        Document or number type
-                    </label>
-                    <select class="form-control custom-select-1 eui-select">
+                <ux-form-group styleClass="pos-relative pad-0">
+                    <label class="col-12 form-control-label" for="legal-document"> Document or number type </label>
+                    <select id="legal-document" formControlName="legalDocument" class="form-control custom-select-1 eui-select">
                         <option *ngFor="let document of country.documentOptions" [attr.value]="document.code">
                             {{document.name}}
                         </option>
                     </select>
                 </ux-form-group>
-                <ux-form-group id="document" styleClass="pos-relative pad-0">
-                    <label class="col-12 form-control-label" for="document">
-                        Number
-                    </label>
+                <ux-form-group styleClass="pos-relative pad-0">
+                    <label class="col-12 form-control-label" for="document-id"> Number </label>
                     <div class="col-12">
-                        <input type="text">
+                        <input id="document-id" formControlName="documentId" type="text">
                     </div>
                 </ux-form-group>
             </div>
@@ -50,25 +48,20 @@
         <fieldset class="mb-3 ocs-form-personal ">
             <legend>Personal information</legend>
             <ux-form-group styleClass="pos-relative pad-0">
-                <label class="col-12 form-control-label" for="full.first.names">
-                    <span class="ux-form-group__label ">Full first names</span>
-                </label>
-                <input id="full.first.names" class="eui-input-text">
+                <label class="col-12 form-control-label" for="first-name"> Full first names </label>
+                <input formControlName="firstName" id="first-name" class="eui-input-text">
             </ux-form-group>
             <ux-form-group styleClass="pos-relative pad-0">
-                <label class="col-12 form-control-label " for="family.names">
-                    <span class="ux-form-group__label ">Family names</span>
-                </label>
-                <input id="family.names" class="eui-input-text">
+                <label class="col-12 form-control-label " for="last-name"> Family names </label>
+                <input formControlName="lastName" id="last-name" class="eui-input-text">
             </ux-form-group>
         </fieldset>
 
-        <fieldset>
+        <fieldset class="form-group" formGroupName="dateOfBirth">
             <ux-form-group>
-                <label class="col-12 form-control-label" for="date.of.birth">Date of birth</label>
-
+                <label class="col-12 form-control-label" for="dateOfBirth"> Date of birt</label>
                 <div class="day">
-                    <select euiselect name="day" id="day.date" required aria-label="Day"
+                    <select euiselect formControlName="day" name="day" id="day"  aria-label="Day"
                         class="form-control custom-select-1 eui-select">
                         <option>Day</option>
                         <option *ngFor="let day of daysInOneMonth">{{day}}</option>
@@ -76,7 +69,7 @@
                 </div>
                 <span class="date-separator">/</span>
                 <div class="month">
-                    <select euiselect name="month" id="month.date" required aria-label="Month"
+                    <select euiselect formControlName="month" name="month" id="month"  aria-label="Month"
                         class="form-control custom-select-1 eui-select">
                         <option>Month</option>
                         <option *ngFor="let month of monthsInOneYear; let index = index" [value]="index + 1">{{month}}
@@ -85,7 +78,7 @@
                 </div>
                 <span class="date-separator">/</span>
                 <div class="year">
-                    <select euiselect name="year" id="year.date" required aria-label="Year"
+                    <select euiselect formControlName="year" name="year" id="year"  aria-label="Year"
                         class="form-control custom-select-1 eui-select">
                         <option>Year</option>
                         <option *ngFor="let year of selectableYears">{{year}}</option>
@@ -96,15 +89,15 @@
         </fieldset>
 
         <fieldset class="mb-3 ocs-form-legal ">
-            <div class="form-group" *ngIf="hasStatement">
-                <input id="certify" name="certify" type="checkbox" class="form-control eui-input-text">
-                <label euilabel="" for="certify" class="label-flex eui-label">
+            <div class="form-group" *ngIf="!country.hasEID">
+                <input id="certify" formControlName="certyfy" name="certify" type="checkbox" class="form-control">
+                <label for="certify"  class="label-flex eui-label">
                     I hereby certify that the information that I have provided in this form is correct and that
                     I have not already supported this initiative.</label>
             </div>
-            <div class="form-group ">
-                <input id="privacy" name="privacy" type="checkbox" class="form-control eui-input-text">
-                <label euilabel="" for="privacy" class="label-flex eui-label">
+            <div class="form-group" *ngIf="!country.hasEID">
+                <input id="statement" formControlName="statement" name="statement" type="checkbox" class="form-control">
+                <label for="statement" class="label-flex eui-label">
                     I have read the
                     <a href="https://europa.eu/citizens-initiative/privacy-policy-concerning-signatories-personal-data-collected-using-central-online-collection_en"
                         target="_blank" title="Read the privacy statement">Privacy statement</a>
@@ -113,16 +106,15 @@
                         target="_blank">citizens’
                         initiative</a>.</label>
             </div>
-            <ux-block-content>
-                <div class="ux-block-content" data-e2e="ux-block-content">
-                    <div class="mb-4 pt-2 ">
-                        <a id="submit" href="javascript:void(0)"
-                            class="ocs-button-blue eui-button eui-button--large eui-button--primary eui-button--with-label theme3-color text-deco-none border-none">
-                            <span class="a-span-content ux-button__content">Support</span>
-                        </a>
-                    </div>
-                </div>
-            </ux-block-content>
+            <div class="mt-5 mb-4">
+                <ux-block-content>
+                    <button id="submit" type="submit"
+                        class="ocs-button-blue eui-button eui-button--large eui-button--primary eui-button--with-label theme3-color text-deco-none border-none">
+                        Support
+                    </button>
+                </ux-block-content>
+            </div>
+
             <div class="ocs-form-support-legend mt-2">
                 To support a European citizens’ initiative, you must:<br>
                 1. be a European Union citizen (i.e. a national of an EU country);<br>

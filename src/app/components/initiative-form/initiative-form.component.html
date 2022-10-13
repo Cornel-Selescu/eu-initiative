@@ -2,5 +2,4 @@
     <country-selector *ngIf="visibleCountrySelector" (select)="onCountrySelect($event)"></country-selector>
     <country-support *ngIf="visibleCountrySupport" (fill-form)="showSupporterInfo()"></country-support>
 </div>
-<supporter-info *ngIf="visibleSuporterInfo" (back)="showCountrySelect()" [country]="selectedCountry"
-    [has-statement]="!statementIsRead"></supporter-info>
+<supporter-info *ngIf="visibleSuporterInfo" (back)="showCountrySelect()" [country]="selectedCountry" [initiative-id]="initiativeId"></supporter-info>
