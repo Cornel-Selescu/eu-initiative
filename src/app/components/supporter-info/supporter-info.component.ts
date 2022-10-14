@@ -53,11 +53,29 @@ export class SupporterInfoComponent implements OnInit {
       certify: [!!this.country.hasEID, [Validators.requiredTrue]],
       statement: [!!this.country.hasEID, [Validators.requiredTrue]],
       dateOfBirth: fb.group({
-        day: ['', [Validators.required]],
-        month: ['', [Validators.required]],
-        year: ['', [Validators.required]]
+        day: ['', [
+          Validators.required
+        ]],
+        month: ['', [
+          Validators.required,
+          
+        ]],
+        year: ['', [
+          Validators.required
+        ]]
       }),
     });
+    this.addDateVaildators();
+    
+  }
+
+  addDateVaildators() {
+    let dayControl = this.initiativeForm.get('dateOfBirth.day');
+    let monthControl = this.initiativeForm.get('dateOfBirth.month');
+    let yearControl = this.initiativeForm.get('dateOfBirth.year');
+    dayControl.addValidators(CustomValidators.ageOver18(dayControl, monthControl, yearControl));
+    monthControl.addValidators(CustomValidators.ageOver18(dayControl, monthControl, yearControl));
+    yearControl.addValidators(CustomValidators.ageOver18(dayControl, monthControl, yearControl));
   }
 
   get legalDocument() {

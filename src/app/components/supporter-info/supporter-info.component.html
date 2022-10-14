@@ -117,6 +117,7 @@
                 <p *ngIf="day?.errors?.required || month?.errors?.required || year?.errors?.required">
                     The date is required.
                 </p>
+                <p *ngIf="day.errors?.under18 || month.errors?.under18 || year.errors?.under18">The age must be over 18</p>
             </div>
         </fieldset>
 
