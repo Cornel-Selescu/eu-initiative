@@ -1,7 +1,7 @@
 <div class="threshhold-graph" *ngIf="thresholdCountries">
     <ux-carousel-items>
         <ux-carousel-item *ngFor="let item of thresholdCountries;let index = index;" [isActive]="item.active">
-            <h3>{{item.country}}</h3>
+            <h3>{{item.country | titlecase}}</h3>
             <div class="graph">
                 <svg height="20" width="20" viewBox="0 0 20 20">
                     <defs>
