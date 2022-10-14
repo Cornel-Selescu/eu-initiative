@@ -16,6 +16,10 @@ export class SupporterInfoComponent implements OnInit {
   @Input('country') country: Country;
 
   @Output('back') back = new EventEmitter();
+  @Output('success') success = new EventEmitter();
+  @Output('fail') fail = new EventEmitter();
+
+  submitFailed: boolean = false;
 
   private currentYear = new Date().getFullYear()
   selectableYears: number[] = Array(this.currentYear - 1900).fill(this.currentYear).map((x, i) => x - i);
@@ -58,7 +62,7 @@ export class SupporterInfoComponent implements OnInit {
         ]],
         month: ['', [
           Validators.required,
-          
+
         ]],
         year: ['', [
           Validators.required
@@ -66,7 +70,7 @@ export class SupporterInfoComponent implements OnInit {
       }),
     });
     this.addDateVaildators();
-    
+
   }
 
   addDateVaildators() {
@@ -126,9 +130,15 @@ export class SupporterInfoComponent implements OnInit {
     this.initiativeForm.markAllAsTouched();
     if (this.initiativeForm.valid) {
       this.initiativeServce.supportInitiative(this.initiativeForm.value)?.subscribe(response => {
+        this.success.emit(response);
         console.log(response);
+        //show message that everything went well
       }, error => {
-        alert('Error ocured');
+        this.fail.emit(error);
+        this.submitFailed = true;
+        setTimeout(() => {
+          this.submitFailed = false;
+        }, 3000);
         console.log(error);
       });
     }

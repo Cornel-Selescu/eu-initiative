@@ -1,4 +1,5 @@
 <div class="border-form-initiative ocs-form-initiative initiative-form">
+    
     <div>
         <button class="ocs-arrow-back " (click)="onBack()">
             <i aria-hidden="true" class="fa fa-arrow-left"></i> Back </button>
@@ -171,3 +172,4 @@
         </fieldset>
     </form>
 </div>
+<eui-alert euiDanger *ngIf="submitFailed" class="mt-4 mb-4">The submit failed.</eui-alert>

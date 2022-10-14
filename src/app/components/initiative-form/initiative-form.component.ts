@@ -9,6 +9,7 @@ import { Country } from 'src/app/typings/country'
 export class InitiativeFormComponent {
   @Input('initiative-id') initiativeId: string | number;
 
+  submitSuccess: boolean = false;
   visibleCountrySelector: boolean = true;
   visibleCountrySupport: boolean = false;
   visibleSuporterInfo: boolean = false;
@@ -36,5 +37,13 @@ export class InitiativeFormComponent {
   showCountrySelect() {
     this.visibleSuporterInfo = false;
     this.visibleCountrySelector = true;
+  }
+
+  onSubmitSuccess() {
+    this.submitSuccess = true;
+    this.showCountrySelect();
+    setTimeout(() => {
+      this.submitSuccess = false;
+    }, 3000);
   }
 }

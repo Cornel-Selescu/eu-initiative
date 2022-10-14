@@ -52,3 +52,8 @@ input, select {
 
     
 }
+
+[type=checkbox] + label:before {
+    position: relative !important;
+    top: 3px !important;
+}
