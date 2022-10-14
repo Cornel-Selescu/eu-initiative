@@ -16,7 +16,6 @@ export class InitiativeInfoComponent implements OnInit {
   ngOnInit(): void {
     this.initiativeServce.getInitiative().subscribe(response => {
       this.initiative = response as InitiativeInfo;
-      console.log(this.initiative);
     }, error => {
       alert('Error ocured');
       console.log(error);

@@ -1,0 +1,36 @@
+.threshhold-graph {
+    text-align: center;
+    box-shadow: 0 0.1428em 0.285712em #00000080;
+    margin-bottom: 1.5em;
+    margin-left: 2px;
+    overflow: hidden;
+    padding: 0.5em;
+    width: 115%;
+
+    @media screen and (max-width: 767px) {
+        width: 100%;
+    }
+
+    h3 {
+        border-bottom: 1px solid #ccc;
+        display: inline-block;
+        padding: 5px 40px;
+    }
+
+    .all-countries {
+        border-top: 1px solid #ccc;
+
+        margin: 10px -20px 0 -20px;
+        padding: 10px;
+    }
+
+    .graph {
+        margin: 20px;
+
+        svg {
+            width: 130px;
+            height: 130px;
+        }
+    }
+
+}

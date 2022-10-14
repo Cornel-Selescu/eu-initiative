@@ -15,6 +15,7 @@ import { CountrySelectorComponent } from '../../components/country-selector/coun
 import { CountrySupportComponent } from '../../components/country-support/country-support.component';
 import { SupporterInfoComponent } from '../../components/supporter-info/supporter-info.component';
 import { InitiativeDetailsComponent } from '../../components/initiative-details/initiative-details.component';
+import { ThresholdGraphComponent } from '../../components/threshold-graph/threshold-graph.component';
 
 @NgModule({
     imports: [
@@ -32,7 +33,8 @@ import { InitiativeDetailsComponent } from '../../components/initiative-details/
         CountrySelectorComponent,
         CountrySupportComponent,
         SupporterInfoComponent,
-        InitiativeDetailsComponent
+        InitiativeDetailsComponent,
+        ThresholdGraphComponent
     ]
 })
 export class Module { }
