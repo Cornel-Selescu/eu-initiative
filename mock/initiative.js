@@ -46,7 +46,28 @@ const initiatives = [{
     }, {
         country: 'Italy',
         date: '11-Oct-2022'
-    }]
+    }],
+    thresholdCountries: [{
+        country: 'Belgium',
+        supporters: 377,
+        maxSupporters: 13395
+    }, {
+        country: 'Italy',
+        supporters: 20,
+        maxSupporters: 1200
+    }, {
+        country: 'France',
+        supporters: 55,
+        maxSupporters: 111111
+    }, {
+        country: 'Germany',
+        supporters: 44,
+        maxSupporters: 3000
+    }, {
+        country: 'Romania',
+        supporters: 11111,
+        maxSupporters: 11111
+    },]
 }];
 
 
