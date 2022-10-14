@@ -8,16 +8,17 @@ describe('ThresholdGraphComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ThresholdGraphComponent ]
-    })
-    .compileComponents();
+      declarations: [ThresholdGraphComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ThresholdGraphComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the graph component', () => {
     expect(component).toBeTruthy();
-  });
+  }); 
+ 
+
 });
