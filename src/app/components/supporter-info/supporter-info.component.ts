@@ -32,18 +32,23 @@ export class SupporterInfoComponent implements OnInit {
       legalDocument: [this.country?.documentOptions[0]?.code || '',
       [Validators.required]],
       initiativeId: [this.initiativeId],
-      documentId: ['',
-        [Validators.required],
-        []],
+      documentId: ['', [
+        Validators.required,
+        Validators.pattern('^([0-9a-zA-Z\\s.\'-]{0,})'),
+        Validators.minLength(5),
+        Validators.maxLength(20),
+      ], []],
       firstName: ['', [
         Validators.required,
         Validators.minLength(2),
-        Validators.maxLength(20)
+        Validators.maxLength(20),
+        Validators.pattern('^([a-zA-Zà-úÀ-Ú\\s.,\'-]{0,})')
       ]],
       lastName: ['', [
         Validators.required,
         Validators.minLength(2),
-        Validators.maxLength(20)
+        Validators.maxLength(20),
+        Validators.pattern('^([a-zA-Zà-úÀ-Ú\\s.,\'-]{0,})')
       ]],
       certify: [!!this.country.hasEID, [Validators.requiredTrue]],
       statement: [!!this.country.hasEID, [Validators.requiredTrue]],
@@ -91,6 +96,9 @@ export class SupporterInfoComponent implements OnInit {
     return this.initiativeForm.get('dateOfBirth.year');
   }
 
+  parseJson(obj): string {
+    return JSON.stringify(obj, null, 2)
+  }
 
   onBack() {
     this.back.emit();
@@ -98,7 +106,7 @@ export class SupporterInfoComponent implements OnInit {
 
   onSubmit() {
     this.initiativeForm.markAllAsTouched();
-    if (this.initiativeForm.valid || true) {
+    if (this.initiativeForm.valid) {
       this.initiativeServce.supportInitiative(this.initiativeForm.value)?.subscribe(response => {
         console.log(response);
       }, error => {

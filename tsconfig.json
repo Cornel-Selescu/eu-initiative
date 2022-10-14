@@ -5,7 +5,10 @@
     "outDir": "./dist/out-tsc",
     "module": "ESNext",
     "target": "ES2016",
-    "lib": ["es2020", "dom"],
+    "lib": [
+      "es2020",
+      "dom"
+    ],
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
@@ -16,5 +19,11 @@
     "typeRoots": [
       "node_modules/@types"
     ]
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictTemplates": true,
+    "preserveWhitespaces": true
   }
 }

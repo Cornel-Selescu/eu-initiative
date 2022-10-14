@@ -19,5 +19,36 @@ select {
 
 .date-separator {
     font-size: 28px;
-    padding: 25px;;
+    padding: 25px;
+    ;
+}
+
+.valid {
+    background-color: darkblue !important;
+}
+
+.errors {
+    margin-bottom: 5px;
+    margin-top: -5px;
+    p {
+        color: #bd3530;
+        font-size: .75em;
+        position: relative;
+        margin: 0;
+        
+    }
+}
+
+input, select {
+    &.ng-touched.ng-invalid {
+        border-color: darkred;
+        background-color: rgb(248, 206, 206);
+    }
+
+    &.ng-touched.ng-valid {
+        border-color: darkslateblue;
+        background-color: rgb(209, 235, 255);
+    }
+
+    
 }

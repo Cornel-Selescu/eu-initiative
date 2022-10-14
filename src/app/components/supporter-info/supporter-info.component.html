@@ -45,6 +45,12 @@
                     </div>
                     <div class="errors" *ngIf="documentId.touched && documentId.invalid">
                         <p *ngIf="documentId.errors.required">The number is required.</p>
+                        <p *ngIf="documentId.errors.pattern">The document number contains forbidden characters.</p>
+                        <p *ngIf="documentId.errors.minlength">The document number should be at least
+                            {{documentId.errors.minlength.requiredLength}} characters long.</p>
+                        <p *ngIf="documentId.errors.maxlength">The document number should be shorter than
+                            {{documentId.errors.maxlength.requiredLength}} characters.</p>
+
                     </div>
                 </ux-form-group>
             </div>
@@ -121,9 +127,10 @@
                     I hereby certify that the information that I have provided in this form is correct and that
                     I have not already supported this initiative.</label>
                 <div class="errors" *ngIf="certify.touched && certify.invalid">
-                    <p *ngIf="certify.errors.requiredtrue">This box needs to be checked.</p>
+                    <p *ngIf="certify.errors.required">This box needs to be checked.</p>
                 </div>
             </div>
+
             <div class="form-group" *ngIf="!country.hasEID">
                 <input id="statement" formControlName="statement" name="statement" type="checkbox" class="form-control">
                 <label for="statement" class="label-flex eui-label">
@@ -135,12 +142,13 @@
                         target="_blank">citizens’
                         initiative</a>.</label>
                 <div class="errors" *ngIf="statement.touched && statement.invalid">
-                    <p *ngIf="statement.errors.requiredtrue">This box needs to be checked.</p>
+                    <p *ngIf="statement.errors.required">This box needs to be checked.</p>
                 </div>
             </div>
+
             <div class="mt-5 mb-4">
                 <ux-block-content>
-                    <button id="submit" type="submit"
+                    <button id="submit" type="submit" [class.valid]="initiativeForm.valid"
                         class="ocs-button-blue eui-button eui-button--large eui-button--primary eui-button--with-label theme3-color text-deco-none border-none">
                         Support
                     </button>
