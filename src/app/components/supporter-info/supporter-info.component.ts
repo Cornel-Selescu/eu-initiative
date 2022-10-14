@@ -138,7 +138,7 @@ export class SupporterInfoComponent implements OnInit {
         this.submitFailed = true;
         setTimeout(() => {
           this.submitFailed = false;
-        }, 3000);
+        }, 5000);
         console.log(error);
       });
     }

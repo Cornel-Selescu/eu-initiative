@@ -78,7 +78,7 @@ const initiatives = [
             maxSupporters: 1000
         },]
     }, {
-        id: 1,
+        id: 2,
         title: 'win it on the pitch',
         details: {
             initiativeLogo: 'http://localhost:3000/win-the-pitch.png',

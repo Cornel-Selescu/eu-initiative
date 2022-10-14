@@ -44,6 +44,6 @@ export class InitiativeFormComponent {
     this.showCountrySelect();
     setTimeout(() => {
       this.submitSuccess = false;
-    }, 3000);
+    }, 5000);
   }
 }
