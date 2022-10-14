@@ -2,6 +2,8 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { CustomValidators } from 'src/app/validators/custom-validators';
 
+import { InitiativeDataService } from 'src/app/services/initiative-data.service';
+
 import { Country } from 'src/app/typings/country';
 
 @Component({
@@ -22,7 +24,7 @@ export class SupporterInfoComponent implements OnInit {
 
   initiativeForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private initiativeServce: InitiativeDataService) { }
 
   ngOnInit(): void {
     const fb = this.fb;
@@ -90,21 +92,19 @@ export class SupporterInfoComponent implements OnInit {
   }
 
 
-
-
-
-
-
-
-
-
   onBack() {
     this.back.emit();
   }
 
   onSubmit() {
-    if (this.initiativeForm.valid) { 
-      // Send to the server
+    this.initiativeForm.markAllAsTouched();
+    if (this.initiativeForm.valid || true) {
+      this.initiativeServce.supportInitiative(this.initiativeForm.value)?.subscribe(response => {
+        console.log(response);
+      }, error => {
+        alert('Error ocured');
+        console.log(error);
+      });
     }
   }
 }

@@ -20,6 +20,13 @@ app.get('/api/initiative', (req, res) => {
   res.json(initiative);
 });
 
+app.post('/api/initiative', (req, res) => {
+  console.log(req.body);
+  res.json({ success: true, data: req.body });
+});
+
+
+
 
 app.listen(port, () => {
   console.log('We are live on ' + port);
